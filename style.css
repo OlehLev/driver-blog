@@ -225,22 +225,22 @@ body{
 .soc-fb{
     background: url(images/facebook.png) no-repeat;
     background-size: cover;
-    transition: 1s;
+    transition: 0.6s;
 }
-.soc-yuotube {
+.soc-youtube {
     background: url(images/youtube.png)no-repeat;
     background-size: cover;
-    transition: 1s;
+    transition: 0.6s;
 }
-.soc-viber {
+.soc-instagram {
     background: url(images/instagram.png)no-repeat;
     background-size: cover;
-    transition: 1s;
+    transition: 0.6s;
 }
 .soc-telegram {
     background: url(images/telegram.png)no-repeat;
     background-size: cover;
-    transition: 1s;
+    transition: 0.6s;
 }
 .insta-slider-box {
     max-width: 100%;
@@ -453,12 +453,12 @@ body{
     border-radius: 15px;
     margin:0 10px;
 }
-.footer-soc-yuotube {
+.footer-soc-youtube {
     background: url(images/youtube_bg.png) 50% 50% no-repeat;
     background-size: cover;
     transition: 0.4s;
 }
-.footer-soc-yuotube:hover {
+.footer-soc-youtube:hover {
     background-image: url(images/youtube_bg_footer.png);
 }
 .footer-soc-fb {
@@ -571,6 +571,7 @@ body{
         max-width: 100%;
         padding: 0;
         transition: 0.6s;
+        box-shadow: 0 0 10px rgb(182 210 231)
     }
     .publication-box-1{
         grid-template-columns: 1fr;
@@ -776,6 +777,49 @@ body{
         outline: none;
         transition: 0.6s;
     }
+    .main-subscribe-or {
+        text-align: center;
+        position: relative;
+        margin:0 20px;
+    }
+    .main-subscribe-or::after{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 8px;
+        height: 1px;
+        width: 44%;
+        background-color: black;
+    }
+    .main-subscribe-or::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 8px;
+        height: 1px;
+        width: 44%;
+        right: 0;
+        background-color: black;
+    }
+
+    .soc {
+        display: grid;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-self: center;
+    }
+    .soc-fb,
+    .soc-youtube,
+    .soc-instagram,
+    .soc-telegram {
+        width: 36px;
+        height: 36px;
+        display: block;
+        border-radius: 18px;
+        z-index: 20;
+        position: relative;
+    }
+
     .main-tabpost-box {
         display: grid;
         row-gap: 15px;
@@ -871,22 +915,6 @@ body{
     .publication-author-main-right-date {
         color: #878787;
         font-size: 12px;
-    }
-
-    .soc {
-        display: grid;
-        row-gap: 20px;
-        column-gap: 30px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        justify-self: center;
-    }
-    .soc-fb,
-    .soc-yuotube,
-    .soc-viber,
-    .soc-telegram {
-        width: 30px;
-        height: 30px;
-        display: block;
     }
 
 }
@@ -1018,65 +1046,41 @@ body{
     }
     .publication-box:hover, 
     .publication-box-row:hover {
-        box-shadow: 0 0 20px rgb(182, 210, 231) ;
+        box-shadow: 0 0 20px #3f51b5;
         transition: 0.6s;
     }
-
-
-
-    .soc-fb,
-    .soc-yuotube,
-    .soc-viber,
-    .soc-telegram {
-        width: 40px;
-        height: 40px;
-        display: block;
-    }
-    .soc {
-        grid-template-columns: 1fr;
-        justify-self: start;
-        row-gap: 15px;
-        width: 100%;
-        padding-top: 15px;
-    }
-    .soc>li>a{
-        display: grid;
-        grid-template-areas: 
-        "soc-hover soc-item";
-        grid-template-columns: 8fr 1fr;
-        text-decoration: none;
-    }
-    .soc-item{
-        grid-area: soc-item;
-    }
-    .soc-hover{
-        display: block;
-        width: 120px;
-        grid-area: soc-hover;
-        line-height: 40px;
-        text-decoration: none;
-        color:white;
-        text-align: center;
+    
+    .soc-youtube-hover, 
+    .soc-fb-hover,
+    .soc-instagram-hover,
+    .soc-telegram-hover{
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background-color: transparent;
         transition: 0.8s;
-        justify-self: end;
+        display: block;
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
     }
-    .soc>li:hover .soc-hover-fb{
-        width: 100%;
+    .soc-items {
+        position: relative;
+    }
+    .soc-items:hover .soc-youtube-hover{
+        background-color: #a82611;
+        transition: 0.8s; 
+    }
+    .soc-items:hover .soc-fb-hover{
         background-color: #223a7b;
         transition: 0.8s;
     }
-    .soc>li:hover .soc-hover-youtube{
-        width: 100%;
-        background-color: #a82611;
-        transition: 0.8s;
-    }
-    .soc>li:hover .soc-hover-viber{
-        width: 100%;
+    .soc-items:hover .soc-instagram-hover{
         background-color: #a91587;
         transition: 0.8s;
     }
-    .soc>li:hover .soc-hover-telegram{
-        width: 100%;
+    .soc-items:hover .soc-telegram-hover{
         background-color: #3f80b1;
         transition: 0.8s;
     }
