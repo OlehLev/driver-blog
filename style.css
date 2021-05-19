@@ -138,6 +138,27 @@ body{
     bottom: 20px;
     right: 20px;
     color: white;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+.publication-like-box{
+    display: grid;
+    grid-template-columns:15px max-content;
+    column-gap: 5px;
+}
+.publication-like-commet{
+    background: url(images/chat-bubbles-white.png) 50% 50% no-repeat;
+}
+.publication-like-like{
+    background: url(images/like.png) 50% 50% no-repeat;
+}
+.publication-like-commet,
+.publication-like-like{
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-size: cover;
 }
 
 .publication-info-box{
@@ -261,20 +282,21 @@ body{
 }
 .footer-first-blok {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 80px;
+    row-gap: 40px;
 }
 
 .footer-menu {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    row-gap: 17px;
+    max-width: 400px;
+    margin: 0 auto;
 
 }
 .footer-menu-items{
     padding: 5px 5px;
-    margin: 5px 5px;
     cursor: pointer;
     border: 1px solid #f5f5f5;
+    border-radius: 4px;
 }
 
 .footer-menu-item {
@@ -344,9 +366,10 @@ body{
 }
 .footer-insta-foto-blok {
     display: grid;
-    grid-template-columns: 1fr auto 1fr; 
+    grid-template-columns: auto auto auto; 
     row-gap: 5px;
     column-gap: 5px;
+    justify-content: center;
 }
 .footer-insta-foto{
     width: 100px;
@@ -366,6 +389,7 @@ body{
     display: grid;
     row-gap: 17px;
     margin: 0 auto;
+    max-width: 400px;
 }
 
 .footer-subscribe-input {
@@ -408,36 +432,12 @@ body{
     background: #303030;
     padding: 20px 0;
 }
-.footer-search {
-    border: 1px solid #f5f5f5 ;
-    border-radius: 18px;
-    padding: 7px 15px;
-    width: max-content;
-    display: flex;
-    align-items: center;
-    justify-self: end
-}
-.footer-input {
-    background:none;
-    color: #f5f5f5;
-    border: none;
-    outline: none;
-    font-size: 14px;
-}
-.footer-search-btn{
-    background: url(images/search-white.png) no-repeat;
-    border: none;
-    width: 16px;
-    height: 16px;
-    background-size: cover;
-    outline: none;
-    cursor: pointer;
-    margin-left: 6px;
-}
+
+
 
 .footer-second-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 80px;
+    grid-template-columns: 1fr 80px;
     column-gap: 30px;
 }
 .footer-soc {
@@ -484,6 +484,9 @@ body{
 }
 .footer-soc-telegram:hover {
     background-image: url(images/telegram_bg_footer.png);
+}
+.footer-search {
+    display: none;
 }
 .footer-language-box {
     display: flex;
@@ -1087,7 +1090,39 @@ body{
     .subscribe-text {
         font-size: 36px;
     }
-
+    .footer-first-blok {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 80px;
+    }
+    .footer-second-grid{
+        grid-template-columns: 1fr 1fr 80px;
+    }
+    .footer-search {
+        border: 1px solid #f5f5f5 ;
+        border-radius: 18px;
+        padding: 7px 15px;
+        width: max-content;
+        display: flex;
+        align-items: center;
+        justify-self: end
+    }
+    .footer-input {
+        background:none;
+        color: #f5f5f5;
+        border: none;
+        outline: none;
+        font-size: 14px;
+    }
+    .footer-search-btn{
+        background: url(images/search-white.png) no-repeat;
+        border: none;
+        width: 16px;
+        height: 16px;
+        background-size: cover;
+        outline: none;
+        cursor: pointer;
+        margin-left: 6px;
+    }
 }
 
 @media(min-width: 1200px) {
