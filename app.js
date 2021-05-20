@@ -46,11 +46,13 @@ let clouseCategory = document.querySelector(".close-category")
 let mainRight = document.querySelector(".main-right")
 let openCategory = document.querySelector(".open-category")
 let closeCategoryLineFirst = document.querySelector(".close-category-first")
-let closeCategoryLineLost = document.querySelector(".close-category-lost")
-let buttonUpPage = document = document.querySelector(".up-page")
+let closeCategoryLineLast = document.querySelector(".close-category-last")
+let buttonUpPage = document.querySelector(".up-page")
+let heidthMain = document.querySelector(".main")
+let heidthHeader = document.querySelector(".header")
 
 window.addEventListener('click', function (e){
-    if(e.target === clouseCategory ||e.target === closeCategoryLineFirst ||e.target === closeCategoryLineLost){    
+    if(e.target === clouseCategory ||e.target === closeCategoryLineFirst ||e.target === closeCategoryLineLast){    
         if(mainRight.classList.contains("hide-tablet")) {
             mainRight.classList.remove("hide-tablet")
         } else {
@@ -73,13 +75,13 @@ window.addEventListener('click', function (e){
 
 window.addEventListener('scroll', function (){
     if(window.innerWidth < 768) {
-        if(window.pageYOffset <= 200 ||window.pageYOffset >= 4350 ) {
+        if(window.pageYOffset <= 200 ||window.pageYOffset >= (heidthMain.offsetHeight - 500)) {
             openCategory.classList.add("hide-tablet")
         } else {
             openCategory.classList.remove("hide-tablet")
         }
     }else {
-        if(window.pageYOffset <= 400 ||window.pageYOffset >= 2100  ) {
+        if(window.pageYOffset <= 400 ||window.pageYOffset >= (heidthMain.offsetHeight - 500)) {
             openCategory.classList.add("hide-tablet")
         } else {
             openCategory.classList.remove("hide-tablet")
@@ -109,3 +111,14 @@ window.addEventListener('scroll', function (){
 buttonUpPage.addEventListener("click", function(){
     window.scroll(0, 0)
 })
+
+let btnMobileMenu = document.querySelector(".open-mobile-menu")
+
+btnMobileMenu.addEventListener("click", function(e){
+    btnMobileMenu.classList.contains("close-mobile-menu") ? 
+    btnMobileMenu.classList.remove("close-mobile-menu") :
+    btnMobileMenu.classList.add("close-mobile-menu") 
+    
+   
+})
+// console.log(e.currentTarget)
