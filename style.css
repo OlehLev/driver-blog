@@ -247,10 +247,10 @@ body{
     background-color: white;
     width: 280px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 20px;
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     right: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px #223a7b;
@@ -293,6 +293,7 @@ body{
 .main-categories-box {
     display: grid;
     row-gap: 15px;
+    padding-bottom: 20px;
 }
 
 .main-right-box-name{
@@ -345,8 +346,6 @@ body{
 .main-subscribe-box {
     display: grid;
     row-gap: 10px;
-    padding-bottom: 20px;
-
 }
 
 .main-subscribe-input-name {
@@ -455,8 +454,8 @@ body{
 }
 
 .open-category {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #223a7b;
     position: fixed;
@@ -465,7 +464,21 @@ body{
     text-align: center;
     z-index: 20;
     color: white;
-    line-height: 40px;
+    line-height: 30px;
+}
+
+.up-page {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #223a7b;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    text-align: center;
+    z-index: 20;
+    color: white;
+    line-height: 30px;
 }
 
 .soc-fb{
@@ -1122,6 +1135,9 @@ body{
         bottom: 0;
         border-radius: 4px;
         box-shadow: 0 0 10px rgb(182, 210, 231);
+    }
+    .main-categories-box {
+        padding-bottom: 0;
     }
     .main-category-item{
         padding: 10px;
