@@ -454,31 +454,31 @@ body{
 }
 
 .open-category {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #223a7b;
+    background: rgba(34, 58, 123, 0.7);
     position: fixed;
-    bottom: 80px;
+    bottom: 110px;
     right: 20px;
     text-align: center;
     z-index: 20;
     color: white;
-    line-height: 30px;
+    line-height: 40px;
 }
 
 .up-page {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #223a7b;
+    background: rgba(34, 58, 123, 0.7);
     position: fixed;
-    bottom: 40px;
+    bottom: 60px;
     right: 20px;
     text-align: center;
     z-index: 20;
     color: white;
-    line-height: 30px;
+    line-height: 40px;
 }
 
 .soc-fb{
@@ -794,6 +794,9 @@ body{
     }
 
     .open-category {
+        right: 30px;
+    }
+    .up-page {
         right: 30px;
     }
 
