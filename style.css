@@ -246,15 +246,15 @@ body{
 .main-right {
     background-color: white;
     width: 280px;
-    display: grid;
-    row-gap: 15px;
-    align-content: start;
+    display: flex;
+    flex-direction: column-reverse;
     padding: 20px;
     position: fixed;
-    top: 20px;
-    right: 15px;
+    bottom: 30px;
+    right: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px #223a7b;
+    z-index: 30;
 }
 
 .main-search-box {
@@ -319,6 +319,7 @@ body{
     text-decoration: none;
     color: black;
     position: relative;
+    box-shadow: 0 0 15px inset rgb(182 210 231)
 }
 .main-category-item::after {
     content: "";
@@ -337,13 +338,14 @@ body{
     justify-self: end;
 }
 .main-category-item:hover {
-    box-shadow: 0 0 15px inset rgb(182, 210, 231);
+    box-shadow: 0 0 15px inset #223a7b;
     transition: 0.6s;
 }
 
 .main-subscribe-box {
     display: grid;
     row-gap: 10px;
+    padding-bottom: 20px;
 
 }
 
@@ -424,7 +426,7 @@ body{
     position: relative;
 }
 
-.close-main-right {
+.close-category {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -433,8 +435,8 @@ body{
     width: 20px;
     height: 20px;
 }
-.close-main-right-first,
-.close-main-right-lost{
+.close-category-first,
+.close-category-lost{
     display: block;
     width: 20px;
     height: 2px;
@@ -444,12 +446,26 @@ body{
     left: 0px;
 }
 
-.close-main-right-first {
+.close-category-first {
     transform: rotate(45deg);
 }
 
-.close-main-right-lost {
+.close-category-lost {
     transform: rotate(-45deg);
+}
+
+.open-category {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #223a7b;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    text-align: center;
+    z-index: 20;
+    color: white;
+    line-height: 40px;
 }
 
 .soc-fb{
@@ -761,6 +777,10 @@ body{
     }
 
     .main-right {
+        right: 30px;
+    }
+
+    .open-category {
         right: 30px;
     }
 
@@ -1093,11 +1113,13 @@ body{
     }
     .main-right {
         display: grid;
+        align-content: start;
         row-gap: 40px;
         width: 100%;
         position: relative;
         left: 0;
         top: 0;
+        bottom: 0;
         border-radius: 4px;
         box-shadow: 0 0 10px rgb(182, 210, 231);
     }
@@ -1106,6 +1128,7 @@ body{
     }
     .main-subscribe-box {
         row-gap: 15px;
+        padding-bottom: 0;
     }
     .main-subscribe-btn{
         margin: 10px 20px 0 20px;

@@ -42,10 +42,14 @@ window.addEventListener('click', function (e){
     }
 })
 
-let clouseCategory = document.querySelector(".close-main-right")
+let clouseCategory = document.querySelector(".close-category")
 let mainRight = document.querySelector(".main-right")
+let openCategory = document.querySelector(".open-category")
+let closeCategoryLineFirst = document.querySelector(".close-category-first")
+let closeCategoryLineLost = document.querySelector(".close-category-lost")
+
 window.addEventListener('click', function (e){
-    if(e.target === clouseCategory){    
+    if(e.target === clouseCategory ||e.target === closeCategoryLineFirst ||e.target === closeCategoryLineLost){    
         if(mainRight.classList.contains("hide-tablet")) {
             mainRight.classList.remove("hide-tablet")
         } else {
@@ -54,3 +58,40 @@ window.addEventListener('click', function (e){
         
     }
 })
+window.addEventListener('click', function (e){
+    if(e.target === openCategory){    
+        if(mainRight.classList.contains("hide-tablet")) {
+            mainRight.classList.remove("hide-tablet")
+        } else {
+            mainRight.classList.add("hide-tablet")
+        }
+        
+    }
+})
+
+
+window.addEventListener('scroll', function (){
+    if(window.innerWidth < 768) {
+        if(window.pageYOffset <= 200 ||window.pageYOffset >= 4350 ) {
+            openCategory.classList.add("hide-tablet")
+            console.log(window.innerWidth)
+        } else {
+            openCategory.classList.remove("hide-tablet")
+            console.log(window.pageYOffset)
+        }
+    }else {
+        if(window.pageYOffset <= 400 ||window.pageYOffset >= 2100  ) {
+            openCategory.classList.add("hide-tablet")
+            console.log(window.innerWidth)
+        } else {
+            openCategory.classList.remove("hide-tablet")
+            console.log(window.pageYOffset)
+        }
+    }
+
+    
+    // console.log(window.innerWidth )
+    // console.log(window.pageYOffset)
+})
+
+
