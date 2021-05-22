@@ -121,4 +121,28 @@ btnMobileMenu.addEventListener("click", function(e){
     
    
 })
-// console.log(e.currentTarget)
+
+
+let ball = document.querySelector('.mobile-menu')
+let positionLeft
+ball.addEventListener("touchstart", function(e){
+    positionLeft = e.touches[0].target.offsetLeft
+    console.log(positionLeft)
+})
+ball.addEventListener("touchmove", function(e) { 
+   
+    moveAt(e);
+  
+    function moveAt(e) {
+        positionLeft = e.touches[0].target.offsetLeft
+        console.log(positionLeft)
+        ball.style.left = e.targetTouches[0].clientX - ball.offsetWidth / 2 + 'px';
+      
+     
+    }
+
+    // window.addEventListener("touchend", function(e) {
+    //   document.onmousemove = null;
+    //   ball.onmouseup = null;
+    // })
+  })
