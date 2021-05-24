@@ -510,22 +510,22 @@ body{
 }
 
 .open-category {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: rgba(34, 58, 123, 0.7);
     position: fixed;
-    bottom: 120px;
+    bottom: 130px;
     right: 20px;
     text-align: center;
     z-index: 20;
     color: white;
-    line-height: 40px;
+    line-height: 50px;
 }
 
 .up-page {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: rgba(34, 58, 123, 0.7);
     position: fixed;
@@ -534,7 +534,7 @@ body{
     text-align: center;
     z-index: 20;
     color: white;
-    line-height: 40px;
+    line-height: 50px;
 }
 
 .soc-fb{
