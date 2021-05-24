@@ -7,15 +7,11 @@ let testkey = document.querySelector(".main-search-input")
 let footerPlus = document.querySelector(".footer-menu-item-plus")
 let footerPlusSecond = document.querySelector(".plus-second")
 let footerSubmenu = document.querySelector(".footer-submenu")
-let footerPlusFirst = document.querySelector(".plus-first")
 let clouseCategory = document.querySelector(".close-category")
 let mainRight = document.querySelector(".main-right")
 let openCategory = document.querySelector(".open-category")
-let closeCategoryLineFirst = document.querySelector(".close-category-first")
-let closeCategoryLineLast = document.querySelector(".close-category-last")
 let buttonUpPage = document.querySelector(".up-page")
 let heidthMain = document.querySelector(".main")
-let heidthHeader = document.querySelector(".header")
 let btnMobileMenu = document.querySelector(".open-mobile-menu")
 let mobileMenu = document.querySelector('.mobile-menu')
 let clickMobileMenu
@@ -23,8 +19,67 @@ let clickMobileMenuPosition
 let scrollMobileMenu
 let boxShadowLeft
 let positionLeft
-let workAria
+let mainRightPositionRight
+let clickMainRightPosition
+let clickMainRight
+let boxShadowMainRight
+let scrollMainRight
 
+function openMobileMenu () {
+    btnMobileMenu.classList.add("close-mobile-menu")
+    mobileMenu.classList.remove('hide-tablet') 
+    mobileMenu.style.left = 15 + "px"
+    mobileMenu.style.transition = "1s"
+
+}
+function closeMobileMenu () {
+    btnMobileMenu.classList.remove("close-mobile-menu") 
+    mobileMenu.style.left = -400 + "px"
+    mobileMenu.style.transition = "1s"
+}
+
+btnMobileMenu.addEventListener("click", function(e){
+    btnMobileMenu.classList.contains("close-mobile-menu") ? 
+    closeMobileMenu () : openMobileMenu ()
+    
+})
+
+mobileMenu.addEventListener("touchstart", function(e){
+    positionLeft = mobileMenu.style.left.slice(0, -2)
+    clickMobileMenuPosition = e.targetTouches[0].clientX - positionLeft
+    clickMobileMenu = e.targetTouches[0].clientX
+    mobileMenu.style.transition = "0s"   
+})
+
+mobileMenu.addEventListener("touchmove", function(e) {  
+    moveAt(e);
+    
+    function moveAt(e) {
+        boxShadowLeft = mobileMenu.style.left.slice(0, -2) - 14
+        scrollMobileMenu = e.targetTouches[0].clientX
+        
+        if( scrollMobileMenu >  clickMobileMenu  && scrollMobileMenu < clickMobileMenu + 30) {
+            mobileMenu.style.left = scrollMobileMenu - clickMobileMenuPosition + 'px';
+            mobileMenu.style.boxShadow = `${boxShadowLeft}px 0px 20px #223a7b`;
+        }else if (scrollMobileMenu < clickMobileMenu) {
+            mobileMenu.style.left = scrollMobileMenu - clickMobileMenuPosition + 'px';
+            mobileMenu.style.boxShadow = ""
+        }
+        
+        return (mobileMenu.style.left, scrollMobileMenu)
+    }
+    
+})
+
+mobileMenu.addEventListener("touchend", function(e) { 
+    if(mobileMenu.style.left.slice(0, -2) < 30 && mobileMenu.style.left.slice(0, -2) > -40 || scrollMobileMenu >  clickMobileMenu){
+        mobileMenu.style.left = 15 + "px"
+        mobileMenu.style.boxShadow = ""
+    } else if(mobileMenu.style.left.slice(0, -2) < -39){
+        closeMobileMenu ()
+    }
+
+})
 
 window.addEventListener('click', function (e){
     if(e.target === tab1){
@@ -41,45 +96,24 @@ window.addEventListener('click', function (e){
     }
     }) 
 
-
-
-
-
-
-window.addEventListener('click', function (e){
-    if(e.target === footerPlus ||e.target === footerPlusFirst ||e.target === footerPlusSecond){    
-        if(footerPlusSecond.classList.contains("clouse")) {
-            footerPlusSecond.classList.remove("clouse")
-            footerSubmenu.classList.remove("active-plus")
-        } else {
-            footerPlusSecond.classList.add("clouse")
-            footerSubmenu.classList.add("active-plus")
-        }
-        
+footerPlus.addEventListener('click', function (){
+    if(footerPlusSecond.classList.contains("clouse")) {
+        footerPlusSecond.classList.remove("clouse")
+        footerSubmenu.classList.remove("active-plus")
+    } else {
+        footerPlusSecond.classList.add("clouse")
+        footerSubmenu.classList.add("active-plus")
     }
 })
 
-
-
-window.addEventListener('click', function (e){
-    if(e.target === clouseCategory ||e.target === closeCategoryLineFirst ||e.target === closeCategoryLineLast){    
-        if(mainRight.classList.contains("hide-tablet")) {
-            mainRight.classList.remove("hide-tablet")
-        } else {
-            mainRight.classList.add("hide-tablet")
-        }
-        
-    }
+clouseCategory.addEventListener('click', function (){
+    mainRight.style.right = '-400px'
+    mainRight.style.transition = "1s" 
 })
-window.addEventListener('click', function (e){
-    if(e.target === openCategory){    
-        if(mainRight.classList.contains("hide-tablet")) {
-            mainRight.classList.remove("hide-tablet")
-        } else {
-            mainRight.classList.add("hide-tablet")
-        }
-        
-    }
+
+openCategory.addEventListener('click', function (){
+    mainRight.style.right = '20px'
+    mainRight.style.transition = "1s" 
 })
 
 
@@ -121,62 +155,43 @@ window.addEventListener('scroll', function (){
 buttonUpPage.addEventListener("click", function(){
     window.scroll(0, 0)
 })
-function openMobileMenu () {
-    btnMobileMenu.classList.add("close-mobile-menu")
-    mobileMenu.classList.remove('hide-tablet') 
-    mobileMenu.style.left = 15 + "px"
-    mobileMenu.style.transition = "1s"
 
-}
-function closeMobileMenu () {
-    btnMobileMenu.classList.remove("close-mobile-menu") 
-    mobileMenu.style.left = -400 + "px"
-    mobileMenu.style.transition = "1s"
-}
+mainRight.addEventListener("touchstart", function(e){
+    mainRightPositionRight = mainRight.style.right.slice(0, -2)
+    clickMainRightPosition = e.targetTouches[0].clientX - mainRightPositionRight
+    clickMainRight = e.targetTouches[0].clientX
+    mainRight.style.transition = "0s"    
+})
 
-btnMobileMenu.addEventListener("click", function(e){
-    btnMobileMenu.classList.contains("close-mobile-menu") ? 
-    closeMobileMenu () : openMobileMenu ()
+mainRight.addEventListener("touchmove", function(e) {  
+
+    boxShadowMainRight = mainRight.style.right.slice(0, -2) - 19
+    scrollMainRight = e.targetTouches[0].clientX
+
+    if( scrollMainRight > clickMainRight - 30 && scrollMainRight < clickMainRight ) {
+        mainRight.style.right = (scrollMainRight - clickMainRight) *-1 + +mainRightPositionRight + 'px';
+        mainRight.style.boxShadow = `-${boxShadowMainRight}px 0px 20px #223a7b`;
+
+    }else if (scrollMainRight > clickMainRight) {
+        mainRight.style.right = (scrollMainRight - clickMainRight) *-1 + +mainRightPositionRight + 'px';;
+        mainRight.style.boxShadow = ""
+    }
+    
+    return (mainRight.style.right, scrollMainRight)
+    
     
 })
 
-mobileMenu.addEventListener("touchstart", function(e){
-    positionLeft = e.touches[0].target.offsetLeft
-    clickMobileMenuPosition = e.targetTouches[0].clientX - positionLeft
-    clickMobileMenu = e.targetTouches[0].clientX
-    mobileMenu.style.transition = "0s"   
+mainRight.addEventListener("touchend", function(e) { 
+    if(mainRight.style.right.slice(0, -2) > mainRightPositionRight || mainRight.style.right.slice(0, -2) > -40){
+        mainRight.style.right = mainRightPositionRight + "px"
+        mainRight.style.boxShadow = ""
+    } else if(mainRight.style.right.slice(0, -2) < -39){
+        mainRight.style.right = '-400px'
+        mainRight.style.transition = "1s" 
+
+    }
+
 })
 
 
-
-mobileMenu.addEventListener("touchmove", function(e) {  
-    moveAt(e);
-    
-    function moveAt(e) {
-        workAria = e.targetTouches[0].clientX - clickMobileMenuPosition + mobileMenu.offsetWidth;
-        boxShadowLeft = e.touches[0].target.offsetLeft - 14
-        scrollMobileMenu = e.targetTouches[0].clientX
-        
-        if( scrollMobileMenu >  clickMobileMenu  && scrollMobileMenu < clickMobileMenu + 15) {
-            mobileMenu.style.left = scrollMobileMenu - clickMobileMenuPosition + 'px';
-            mobileMenu.style.boxShadow = `${boxShadowLeft}px 0px 20px #223a7b`;
-        }else if (scrollMobileMenu < clickMobileMenu) {
-            mobileMenu.style.left = scrollMobileMenu - clickMobileMenuPosition + 'px';
-            mobileMenu.style.boxShadow = ""
-        }
-        
-        return (mobileMenu.style.left, scrollMobileMenu)
-    }
-    
-  })
-
-  mobileMenu.addEventListener("touchend", function(e) { 
-    if(e.target.style.left.slice(0, -2) < 15 && e.target.style.left.slice(0, -2) > -25 || scrollMobileMenu >  clickMobileMenu){
-        mobileMenu.style.left = 15 + "px"
-        mobileMenu.style.boxShadow = ""
-    } else if(e.target.style.left.slice(0, -2) < -25){
-        closeMobileMenu ()
-
-    }
-
-  })
