@@ -18,9 +18,10 @@ let heidthMain = document.querySelector(".main")
 let heidthHeader = document.querySelector(".header")
 let btnMobileMenu = document.querySelector(".open-mobile-menu")
 let mobileMenu = document.querySelector('.mobile-menu')
-let  clickMobileMenu
-let  clickMobileMenuPosition
+let clickMobileMenu
+let clickMobileMenuPosition
 let scrollMobileMenu
+let boxShadowLeft
 let positionLeft
 let workAria
 
@@ -124,11 +125,13 @@ function openMobileMenu () {
     btnMobileMenu.classList.add("close-mobile-menu")
     mobileMenu.classList.remove('hide-tablet') 
     mobileMenu.style.left = 15 + "px"
+    mobileMenu.style.transition = "1s"
 
 }
 function closeMobileMenu () {
     btnMobileMenu.classList.remove("close-mobile-menu") 
-    mobileMenu.classList.add('hide-tablet') 
+    mobileMenu.style.left = -400 + "px"
+    mobileMenu.style.transition = "1s"
 }
 
 btnMobileMenu.addEventListener("click", function(e){
@@ -141,7 +144,7 @@ mobileMenu.addEventListener("touchstart", function(e){
     positionLeft = e.touches[0].target.offsetLeft
     clickMobileMenuPosition = e.targetTouches[0].clientX - positionLeft
     clickMobileMenu = e.targetTouches[0].clientX
-   
+    mobileMenu.style.transition = "0s"   
 })
 
 
@@ -151,8 +154,7 @@ mobileMenu.addEventListener("touchmove", function(e) {
     
     function moveAt(e) {
         workAria = e.targetTouches[0].clientX - clickMobileMenuPosition + mobileMenu.offsetWidth;
-        let boxShadowLeft = e.touches[0].target.offsetLeft - 14
-        console.log(boxShadowLeft)
+        boxShadowLeft = e.touches[0].target.offsetLeft - 14
         scrollMobileMenu = e.targetTouches[0].clientX
         
         if( scrollMobileMenu >  clickMobileMenu  && scrollMobileMenu < clickMobileMenu + 15) {
@@ -173,8 +175,7 @@ mobileMenu.addEventListener("touchmove", function(e) {
         mobileMenu.style.left = 15 + "px"
         mobileMenu.style.boxShadow = ""
     } else if(e.target.style.left.slice(0, -2) < -25){
-        mobileMenu.classList.add('hide-tablet')
-        btnMobileMenu.classList.remove("close-mobile-menu")
+        closeMobileMenu ()
 
     }
 
