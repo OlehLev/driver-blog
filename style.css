@@ -83,7 +83,7 @@ body{
     height: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-left: 10px;
     position: relative;
 }
@@ -94,17 +94,9 @@ body{
     width: 25px;
     height: 2px;
     background-color: white;
-    position: absolute;
+    position: relative;
 }
-.open-mobile-menu > span:first-child {
-    top: 0;
-}
-.open-mobile-menu > span:nth-child(2) {
-    top: calc(50% - 1px);
-}
-.open-mobile-menu > span:last-child {
-    bottom: 0;
-}
+
 .close-mobile-menu {
     background-color: red;
     border-radius: 4px;
@@ -112,7 +104,7 @@ body{
 }
 
 .close-mobile-menu > span:first-child{
-    top: calc(50% - 1px);
+    top: 4px;
     transform: rotate(-45deg);
     transition: 0.6s;
 }
@@ -120,21 +112,50 @@ body{
     display: none;
 }
 .close-mobile-menu > span:last-child {
-    bottom: calc(50% - 1px);
+    bottom: 4px;
     transform: rotate(45deg);
     transition: 0.6s;
 }
 .mobile-menu {
-    width: 250px;
-    height: 350px;
+    width: 220px;
+    padding: 20px;
     position: absolute;
     top: 110px;
     left: -400px;
     background-color: white;
     z-index: 100;
     transition: 1s;
+    display: grid;
+    row-gap: 20px;
+    box-shadow: 0 0 10px #223a7b;
+    border-radius: 8px;
 }
 
+.mobile-menu-item {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    box-shadow: 0 0 15px inset rgb(182 210 231);
+    border-radius: 4px;
+    color: black;
+}
+.mobile-submenu {
+    display: grid;
+    row-gap: 20px;
+    padding-top: 15px;
+    padding-left: 20px;
+}
+/* .mobile-submenu-items {
+    background: rgb(182, 210, 231);
+} */
+.mobile-submenu-item {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    box-shadow: 0 0 15px inset rgb(182 210 231);
+    border-radius: 4px;
+    color: black;
+}
 .main{
     background-color: #f5f5f5;
     display: grid;
@@ -301,7 +322,7 @@ body{
 
 .main-right {
     background-color: white;
-    width: 280px;
+    width: 260px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -799,6 +820,66 @@ body{
     width: 40px;
 }
 
+
+/* Картинка мастабируется по отношению к родительскому элементу */
+.slider .item img {
+    width: 100%;
+    border: none ;
+    box-shadow: none ;
+}
+/* Кнопки вперед и назад */
+.slider .prev, .slider .next {
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 22px);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+.slider .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+/* При наведении на кнопки добавляем фон кнопок */
+.slider .prev:hover,
+.slider .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* Заголовок слайда */
+.slideText {
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+    /* Выравнивание текста по горизонтали и по вертикали*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* Тень*/
+    text-shadow: 1px 1px 1px #000, 0 0 1em #000;
+}
+/* Кружочки */
+.slider-dots {
+    text-align: center;
+}
+.slider-dots_item{
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active,
+.slider-dots_item:hover {
+    background-color: #aaa;
+}
+
 @media(min-width: 768px) {
     .header {
         background: none;
@@ -832,7 +913,7 @@ body{
         position: relative;
         top: -45px;
     }
-    .slider-item {
+    .slider .item img  {
         width: 100%;
         height: 300px;
     }
@@ -1166,7 +1247,7 @@ body{
         position: relative;
         top: -36px;
     }
-    .slider-item {
+    .slider .item img  {
         width: 100%;
         height: 500px;
     }

@@ -20,10 +20,22 @@
                     <span></span>
                     <span></span>
                 </div>
-                <div class="mobile-menu hide-laptop"></div>
+                <ul class="mobile-menu hide-laptop">
+                    <li class="mobile-menu-items"><a href="" class="mobile-menu-item">HOME</a></li>
+                    <li class="mobile-menu-items"><span href="" class="mobile-menu-item">CATEGORY</span>
+                        <ul class="mobile-submenu">
+                            <li class="mobile-submenu-items"><a href="" class="mobile-submenu-item">Inovation</a></li>
+                            <li class="mobile-submenu-items"><a href="" class="mobile-submenu-item">Sport</a></li>
+                            <li class="mobile-submenu-items"><a href="" class="mobile-submenu-item">Lifehike</a></li>
+                            <li class="mobile-submenu-items"><a href="" class="mobile-submenu-item">Test-drive</a></li>
+                        </ul>
+                    </li>
+                    <li class="mobile-menu-items"><a href="" class="mobile-menu-item">ABUT AS</a></li>
+                    <li class="mobile-menu-items"><a href="" class="mobile-menu-item">SHOP</a></li>
+                </ul>
                 <ul class="menu">
                     <li class="menu-items"><a href="" class="menu-item active-header">HOME</a></li>
-                    <li class="menu-items"><span href="" class="menu-item">CATEGORY</span>
+                    <li class="menu-items"><a href="" class="menu-item">CATEGORY</a>
                         <ul class="submenu">
                             <li class="submenu-items"><a href="" class="submenu-item">Inovation</a></li>
                             <li class="submenu-items"><a href="" class="submenu-item">Sport</a></li>
@@ -41,11 +53,39 @@
             </div>
         </div>
     </header>
-    <section class="slider-box hide-mobile">
+    <div class="slider-box hide-mobile">
         <div class="slider">
-            <img src="images/header-fon.jpg" alt="" class="slider-item">
+            <div class="item">
+                <img src="images/header-fon.jpg" alt="Первый слайд">
+                <div class="slideText">Заголовок слайда 1</div>
+            </div>
+        
+            <div class="item">
+                <img src="images/header-fon2.jpg" alt="Второй слайд">
+                <div class="slideText">Заголовок слайда 2</div>
+            </div>
+        
+            <div class="item">
+                <img src="images/header-fon3.jpg" alt="Третий слайд">
+                <div class="slideText">Заголовок слайда 3</div>
+            </div>
+
+            <div class="item">
+                <img src="images/header-fon2.jpg" alt="Второй слайд">
+                <div class="slideText">Заголовок слайда 4</div>
+            </div>
+        
+            <div class="prev" onclick="minusSlide()">&#10094;</div>
+            <div class="next" onclick="plusSlide()">&#10095;</div>
         </div>
-    </section>
+        
+        <div class="slider-dots">
+            <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+            <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+            <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+            <span class="slider-dots_item" onclick="currentSlide(4)"></span> 
+        </div>
+    </div>
     <main class="main">
         <section class="main-sort">
             <div class="container">
